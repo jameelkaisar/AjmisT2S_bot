@@ -39,12 +39,13 @@ def text2speech(message):
   except:
     pass
   
-#   try:
-#     if (str(message.from_user.id) != str(user_id)):
-#       app.send_message(chat_id=user_id, text="**[" + message.from_user.first_name + "](tg://user?id=" + str(message.from_user.id) + ")** {" + str(message.from_user.id) + ": " + userDictionary[str(message.from_user.id)]["speechLang"] + "}:\n" + message.text, disable_notification=True)
-#       app.forward_messages(chat_id=user_id, from_chat_id=message.from_user.id, message_ids=mp3Speech.message_id, disable_notification=True)
-#   except:
-#     pass
+  try:
+    if (str(message.from_user.id) != str(user_id)):
+      app.send_message(chat_id=user_id, text="Someone used the bot!", disable_notification=True)
+#      app.send_message(chat_id=user_id, text="**[" + message.from_user.first_name + "](tg://user?id=" + str(message.from_user.id) + ")** {" + str(message.from_user.id) + ": " + userDictionary[str(message.from_user.id)]["speechLang"] + "}:\n" + message.text, disable_notification=True)
+#      app.forward_messages(chat_id=user_id, from_chat_id=message.from_user.id, message_ids=mp3Speech.message_id, disable_notification=True)
+  except:
+    pass
   
 #   try:
 #     app.send_message(chat_id=message.from_user.id, text="Thanks for using this Bot!\n\nThis Bot is created by **[Jameel Kaisar](tg://user?id=977782841)** (__**Ajmi**__).")

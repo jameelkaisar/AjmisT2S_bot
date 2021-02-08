@@ -40,9 +40,9 @@ def text2speech(message):
     pass
   
 #   try:
-#     if (str(message.from_user.id) != str(977782841)):
-#       app.send_message(chat_id=977782841, text="**[" + message.from_user.first_name + "](tg://user?id=" + str(message.from_user.id) + ")** {" + str(message.from_user.id) + ": " + userDictionary[str(message.from_user.id)]["speechLang"] + "}:\n" + message.text, disable_notification=True)
-#       app.forward_messages(chat_id=977782841, from_chat_id=message.from_user.id, message_ids=mp3Speech.message_id, disable_notification=True)
+#     if (str(message.from_user.id) != str(user_id)):
+#       app.send_message(chat_id=user_id, text="**[" + message.from_user.first_name + "](tg://user?id=" + str(message.from_user.id) + ")** {" + str(message.from_user.id) + ": " + userDictionary[str(message.from_user.id)]["speechLang"] + "}:\n" + message.text, disable_notification=True)
+#       app.forward_messages(chat_id=user_id, from_chat_id=message.from_user.id, message_ids=mp3Speech.message_id, disable_notification=True)
 #   except:
 #     pass
   
@@ -94,6 +94,7 @@ def inputLanguage(message):
 api_id = int(environ["API_ID"])
 api_hash = environ["API_HASH"]
 bot_token = environ["BOT_TOKEN"]
+user_id = environ["USER_ID"]
 
 langDictionary = {"1": {"Afrikaans": "af"}, "2": {"Arabic": "ar"}, "3": {"Bengali": "bn"}, "4": {"Bosnian": "bs"}, "5": {"Catalan": "ca"}, "6": {"Czech": "cs"}, "7": {"Welsh": "cy"}, "8": {"Danish": "da"}, "9": {"German": "de"}, "10": {"Greek": "el"}, "11": {"English": "en"}, "12": {"Esperanto": "eo"}, "13": {"Spanish": "es"}, "14": {"Estonian": "et"}, "15": {"Finnish": "fi"}, "16": {"French": "fr"}, "17": {"Gujarati": "gu"}, "18": {"Hindi": "hi"}, "19": {"Croatian": "hr"}, "20": {"Hungarian": "hu"}, "21": {"Armenian": "hy"}, "22": {"Indonesian": "id"}, "23": {"Icelandic": "is"}, "24": {"Italian": "it"}, "25": {"Japanese": "ja"}, "26": {"Javanese": "jw"}, "27": {"Khmer": "km"}, "28": {"Kannada": "kn"}, "29": {"Korean": "ko"}, "30": {"Latin": "la"}, "31": {"Latvian": "lv"}, "32": {"Macedonian": "mk"}, "33": {"Malayalam": "ml"}, "34": {"Marathi": "mr"}, "35": {"Myanmar (Burmese)": "my"}, "36": {"Nepali": "ne"}, "37": {"Dutch": "nl"}, "38": {"Norwegian": "no"}, "39": {"Polish": "pl"}, "40": {"Portuguese": "pt"}, "41": {"Romanian": "ro"}, "42": {"Russian": "ru"}, "43": {"Sinhala": "si"}, "44": {"Slovak": "sk"}, "45": {"Albanian": "sq"}, "46": {"Serbian": "sr"}, "47": {"Sundanese": "su"}, "48": {"Swedish": "sv"}, "49": {"Swahili": "sw"}, "50": {"Tamil": "ta"}, "51": {"Telugu": "te"}, "52": {"Thai": "th"}, "53": {"Filipino": "tl"}, "54": {"Turkish": "tr"}, "55": {"Ukrainian": "uk"}, "56": {"Urdu": "ur"}, "57": {"Vietnamese": "vi"}, "58": {"Chinese": "zh-CN"}, "59": {"Chinese (Mandarin/Taiwan)": "zh-TW"}, "60": {"Chinese (Mandarin)": "zh"}}
 userDictionary = {}
@@ -102,12 +103,12 @@ userDictionary = {}
 try:
   dep = Client(":memory:", api_id, api_hash, bot_token=bot_token)
   with dep:
-    dep.send_message(chat_id=977782841, text="Bot Deployed Successfully!")
+    dep.send_message(chat_id=user_id, text="Bot Deployed Successfully!")
     try:
       if not os.path.exists("/app/Speech"):
         os.makedirs("/app/Speech")
     except:
-      dep.send_message(chat_id=977782841, text="Speech Folder Cannot Be Created!")
+      dep.send_message(chat_id=user_id, text="Speech Folder Cannot Be Created!")
 except:
   pass
 
@@ -124,10 +125,10 @@ app = Client(":memory:", api_id, api_hash, bot_token=bot_token)
 @app.on_message(filters.command("info"))
 def info(client, message):
   try:
-    if (str(message.from_user.id) == str(977782841)):
-      app.send_message(chat_id=977782841, text="Retries Left = " + str(retries))
-      app.send_message(chat_id=977782841, text="**langDictionary:**\n\n" + str(langDictionary))
-      app.send_message(chat_id=977782841, text="**userDictionary:**\n\n" + str(userDictionary))
+    if (str(message.from_user.id) == str(user_id)):
+      app.send_message(chat_id=user_id, text="Retries Left = " + str(retries))
+      app.send_message(chat_id=user_id, text="**langDictionary:**\n\n" + str(langDictionary))
+      app.send_message(chat_id=user_id, text="**userDictionary:**\n\n" + str(userDictionary))
     else:
       try:
         userDictionary[str(message.from_user.id)].pop("selectLang")

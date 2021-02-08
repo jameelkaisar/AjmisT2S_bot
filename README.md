@@ -1,10 +1,10 @@
 # AjmisT2S_bot
 
 ## Ajmi's Text to Speech Bot
-Written in **Python**
-Hosted on **Heroku**
-Libraries used **Pyrogram** and **gTTS**
-Created by **[Jameel Kaisar](https://github.com/JameelKaisar)** (_**Ajmi**_)
+Written in **Python**\
+Hosted on **Heroku**\
+Libraries used **Pyrogram** and **gTTS**\
+Created by **[Jameel Kaisar](https://github.com/JameelKaisar)** (_**Ajmi**_)\
 Created on February 6/7, 2021
 
 ## Languages Supported
@@ -16,5 +16,5 @@ Afrikaans, Arabic, Bengali, Bosnian, Catalan, Czech, Welsh, Danish, German, Gree
 ## License
 MIT License
 
-## Deloy
+## Deploy
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)

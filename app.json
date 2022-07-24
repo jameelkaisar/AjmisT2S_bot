@@ -2,6 +2,7 @@
   "name": "ajmist2s-bot",
   "description": "Ajmi's Text to Speech Bot",
   "repository": "https://github.com/JameelKaisar/AjmisT2S_bot",
+  "stack": "heroku-22",
   "formation": {
     "worker": {
       "quantity": 1,

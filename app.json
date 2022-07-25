@@ -3,12 +3,6 @@
   "description": "Ajmi's Text to Speech Bot",
   "repository": "https://github.com/JameelKaisar/AjmisT2S_bot",
   "stack": "heroku-22",
-  "formation": {
-    "worker": {
-      "quantity": 1,
-      "size": "free"
-    }
-  },
   "env": {
     "API_ID": {
       "description": "Get API_ID from https://my.telegram.org"
